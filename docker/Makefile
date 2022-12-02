@@ -264,7 +264,7 @@ agimus-vision_repository=${AGIMUS_REPO}
 
 agimus-demos_branch=devel
 agimus-demos_repository=${AGIMUS_REPO}
-agimus-demo_extraflags= -DPYTHON_EXECUTABLE=${PYTHON_EXECUTABLE}
+agimus-demo_extraflags= -DUSE_UR10=ON -DPYTHON_EXECUTABLE=${PYTHON_EXECUTABLE}
 
 agimus-doc_branch=devel
 agimus-doc_repository=${AGIMUS_REPO}
@@ -1178,6 +1178,14 @@ react_inria.checkout:
 		git clone ${GIT_QUIET} --recursive -b ${react_inria_branch} https://oauth2:glpat-LUsL1Gx9_xMFqWALBvP_@gitlab.laas.fr/rob4fam/react_inria.git; \
 	fi \
 
+agimus-demos.checkout:
+	if [ -d agimus-demos ]; then \
+		echo "agimus-demos already checked out."; \
+	else \
+		git clone ${GIT_QUIET} -b ${agimus-demos_branch} ${agimus-demos_repository}/agimus-demos;\
+		cd ${SRC_DIR}/agimus-demos; git submodule update --init ur10 cmake; \
+		cd ${SRC_DIR}/agimus-demos/ur10; git submodule update --init pointing; \
+	fi
 
 ros_control.configure_nodep:
 	mkdir -p ${SRC_DIR}/$(@:.configure_nodep=)/controller_manager_msgs/${BUILD_FOLDER}; \
