@@ -698,10 +698,10 @@ robot_model_py.install: robot_model_py.configure
 universal_robot.configure_nodep:
 	mkdir -p ${SRC_DIR}/$(@:.configure_nodep=)/ur_description/${BUILD_FOLDER}; \
 	cd ${SRC_DIR}/$(@:.configure_nodep=)/ur_description/${BUILD_FOLDER}; \
-	cmake -DCMAKE_INSTALL_PREFIX=${DEVEL_HPP_DIR}/install -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} -DCMAKE_CXX_FLAGS_RELWITHDEBINFO="-g -O3 -DNDEBUG" ${$(@:.configure_nodep=)_extra_flags} ..;\
+	cmake -DCMAKE_INSTALL_PREFIX=${INSTALL_HPP_DIR} -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} -DCMAKE_CXX_FLAGS_RELWITHDEBINFO="-g -O3 -DNDEBUG" ${$(@:.configure_nodep=)_extra_flags} ..;\
 	mkdir -p ${SRC_DIR}/$(@:.configure_nodep=)/ur_gazebo/${BUILD_FOLDER}; \
 	cd ${SRC_DIR}/$(@:.configure_nodep=)/ur_gazebo/${BUILD_FOLDER}; \
-	cmake -DCMAKE_INSTALL_PREFIX=${DEVEL_HPP_DIR}/install -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} -DCMAKE_CXX_FLAGS_RELWITHDEBINFO="-g -O3 -DNDEBUG" ${$(@:.configure_nodep=)_extra_flags} ..
+	cmake -DCMAKE_INSTALL_PREFIX=${INSTALL_HPP_DIR} -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} -DCMAKE_CXX_FLAGS_RELWITHDEBINFO="-g -O3 -DNDEBUG" ${$(@:.configure_nodep=)_extra_flags} ..
 
 universal_robot.install_nodep:universal_robot.configure_nodep
 	cd ${SRC_DIR}/$(@:.install_nodep=)/ur_description/${BUILD_FOLDER};\
@@ -718,10 +718,10 @@ universal_robot.install:universal_robot.configure
 vision_opencv.configure_nodep:
 	mkdir -p ${SRC_DIR}/$(@:.configure_nodep=)/cv_bridge/${BUILD_FOLDER}; \
 	cd ${SRC_DIR}/$(@:.configure_nodep=)/cv_bridge/${BUILD_FOLDER}; \
-	cmake -DCMAKE_INSTALL_PREFIX=${DEVEL_HPP_DIR}/install -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${$(@:.configure_nodep=)_extra_flags} ..;\
+	cmake -DCMAKE_INSTALL_PREFIX=${INSTALL_HPP_DIR} -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${$(@:.configure_nodep=)_extra_flags} ..;\
 	mkdir -p ${SRC_DIR}/$(@:.configure_nodep=)/image_geometry/${BUILD_FOLDER}; \
 	cd ${SRC_DIR}/$(@:.configure_nodep=)/image_geometry/${BUILD_FOLDER}; \
-	cmake -DCMAKE_INSTALL_PREFIX=${DEVEL_HPP_DIR}/install -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${$(@:.configure_nodep=)_extra_flags} ..;\
+	cmake -DCMAKE_INSTALL_PREFIX=${INSTALL_HPP_DIR} -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${$(@:.configure_nodep=)_extra_flags} ..;\
 	mkdir -p ${SRC_DIR}/$(@:.configure_nodep=)/vision_opencv/${BUILD_FOLDER}; \
 	cd ${SRC_DIR}/$(@:.configure_nodep=)/vision_opencv/${BUILD_FOLDER};
 
@@ -742,27 +742,27 @@ vision_opencv.install:vision_opencv.configure
 visp_bridge.configure_nodep:
 	mkdir -p ${SRC_DIR}/vision_visp/visp_bridge/${BUILD_FOLDER}; \
 	cd ${SRC_DIR}/vision_visp/visp_bridge/${BUILD_FOLDER}; \
-	cmake -DCMAKE_INSTALL_PREFIX=${DEVEL_HPP_DIR}/install -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${vision_visp_extra_flags} ..
+	cmake -DCMAKE_INSTALL_PREFIX=${INSTALL_HPP_DIR} -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${vision_visp_extra_flags} ..
 
 visp_tracker.configure_nodep:
 	mkdir -p ${SRC_DIR}/vision_visp/visp_tracker/${BUILD_FOLDER}; \
 	cd ${SRC_DIR}/vision_visp/visp_tracker/${BUILD_FOLDER}; \
-	cmake -DCMAKE_INSTALL_PREFIX=${DEVEL_HPP_DIR}/install -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${vision_visp_extra_flags} ..
+	cmake -DCMAKE_INSTALL_PREFIX=${INSTALL_HPP_DIR} -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${vision_visp_extra_flags} ..
 
 visp_auto_tracker.configure_nodep:
 	mkdir -p ${SRC_DIR}/vision_visp/visp_auto_tracker/${BUILD_FOLDER}; \
 	cd ${SRC_DIR}/vision_visp/visp_auto_tracker/${BUILD_FOLDER}; \
-	cmake -DCMAKE_INSTALL_PREFIX=${DEVEL_HPP_DIR}/install -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${vision_visp_extra_flags} ..
+	cmake -DCMAKE_INSTALL_PREFIX=${INSTALL_HPP_DIR} -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${vision_visp_extra_flags} ..
 
 visp_camera_calibration.configure_nodep:
 	mkdir -p ${SRC_DIR}/vision_visp/visp_camera_calibration/${BUILD_FOLDER}; \
 	cd ${SRC_DIR}/vision_visp/visp_camera_calibration/${BUILD_FOLDER}; \
-	cmake -DCMAKE_INSTALL_PREFIX=${DEVEL_HPP_DIR}/install -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${vision_visp_extra_flags} ..
+	cmake -DCMAKE_INSTALL_PREFIX=${INSTALL_HPP_DIR} -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${vision_visp_extra_flags} ..
 
 visp_hand2eye_calibration.configure_nodep:
 	mkdir -p ${SRC_DIR}/vision_visp/visp_hand2eye_calibration/${BUILD_FOLDER}; \
 	cd ${SRC_DIR}/vision_visp/visp_hand2eye_calibration/${BUILD_FOLDER}; \
-	cmake -DCMAKE_INSTALL_PREFIX=${DEVEL_HPP_DIR}/install -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${vision_visp_extra_flags} ..
+	cmake -DCMAKE_INSTALL_PREFIX=${INSTALL_HPP_DIR} -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${vision_visp_extra_flags} ..
 
 visp_bridge.install_nodep:
 	cd ${SRC_DIR}/vision_visp/visp_bridge/${BUILD_FOLDER}; \
@@ -806,22 +806,22 @@ visp_hand2eye_calibration.install: visp_hand2eye_calibration.configure
 image_pipeline.configure_nodep:
 	mkdir -p ${SRC_DIR}/$(@:.configure_nodep=)/camera_calibration/${BUILD_FOLDER}; \
 	cd ${SRC_DIR}/$(@:.configure_nodep=)/camera_calibration/${BUILD_FOLDER}; \
-	cmake -DCMAKE_INSTALL_PREFIX=${DEVEL_HPP_DIR}/install -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${$(@:.configure_nodep=)_extra_flags} ..;\
+	cmake -DCMAKE_INSTALL_PREFIX=${INSTALL_HPP_DIR} -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${$(@:.configure_nodep=)_extra_flags} ..;\
 	mkdir -p ${SRC_DIR}/$(@:.configure_nodep=)/depth_image_proc/${BUILD_FOLDER}; \
 	cd ${SRC_DIR}/$(@:.configure_nodep=)/depth_image_proc/${BUILD_FOLDER}; \
-	cmake -DCMAKE_INSTALL_PREFIX=${DEVEL_HPP_DIR}/install -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${$(@:.configure_nodep=)_extra_flags} ..;\
+	cmake -DCMAKE_INSTALL_PREFIX=${INSTALL_HPP_DIR} -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${$(@:.configure_nodep=)_extra_flags} ..;\
 	mkdir -p ${SRC_DIR}/$(@:.configure_nodep=)/image_pipeline/${BUILD_FOLDER}; \
 	cd ${SRC_DIR}/$(@:.configure_nodep=)/image_pipeline/${BUILD_FOLDER}; \
-	cmake -DCMAKE_INSTALL_PREFIX=${DEVEL_HPP_DIR}/install -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${$(@:.configure_nodep=)_extra_flags} ..;\
+	cmake -DCMAKE_INSTALL_PREFIX=${INSTALL_HPP_DIR} -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${$(@:.configure_nodep=)_extra_flags} ..;\
 	mkdir -p ${SRC_DIR}/$(@:.configure_nodep=)/image_proc/${BUILD_FOLDER}; \
 	cd ${SRC_DIR}/$(@:.configure_nodep=)/image_proc/${BUILD_FOLDER}; \
-	cmake -DCMAKE_INSTALL_PREFIX=${DEVEL_HPP_DIR}/install -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${$(@:.configure_nodep=)_extra_flags} ..;\
+	cmake -DCMAKE_INSTALL_PREFIX=${INSTALL_HPP_DIR} -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${$(@:.configure_nodep=)_extra_flags} ..;\
 	cd ${SRC_DIR}/$(@:.configure_nodep=)/image_publisher/${BUILD_FOLDER}; \
-	cmake -DCMAKE_INSTALL_PREFIX=${DEVEL_HPP_DIR}/install -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${$(@:.configure_nodep=)_extra_flags} ..;\
+	cmake -DCMAKE_INSTALL_PREFIX=${INSTALL_HPP_DIR} -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${$(@:.configure_nodep=)_extra_flags} ..;\
 	cd ${SRC_DIR}/$(@:.configure_nodep=)/image_rotate/${BUILD_FOLDER}; \
-	cmake -DCMAKE_INSTALL_PREFIX=${DEVEL_HPP_DIR}/install -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${$(@:.configure_nodep=)_extra_flags} ..;\
+	cmake -DCMAKE_INSTALL_PREFIX=${INSTALL_HPP_DIR} -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${$(@:.configure_nodep=)_extra_flags} ..;\
 	cd ${SRC_DIR}/$(@:.configure_nodep=)/stereo_image_proc/${BUILD_FOLDER}; \
-	cmake -DCMAKE_INSTALL_PREFIX=${DEVEL_HPP_DIR}/install -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${$(@:.configure_nodep=)_extra_flags} ..
+	cmake -DCMAKE_INSTALL_PREFIX=${INSTALL_HPP_DIR} -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${$(@:.configure_nodep=)_extra_flags} ..
 
 image_pipeline.install_nodep:image_pipeline.configure_nodep
 	cd ${SRC_DIR}/$(@:.install_nodep=)/camera_calibration/${BUILD_FOLDER};\
@@ -865,10 +865,10 @@ realsense-ros.checkout:
 realsense-ros.configure_nodep:
 	mkdir -p ${SRC_DIR}/$(@:.configure_nodep=)/realsense2_camera/${BUILD_FOLDER}; \
 	cd ${SRC_DIR}/$(@:.configure_nodep=)/realsense2_camera/${BUILD_FOLDER}; \
-	cmake -DCMAKE_INSTALL_PREFIX=${DEVEL_HPP_DIR}/install -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${$(@:.configure_nodep=)_extra_flags} ..;\
+	cmake -DCMAKE_INSTALL_PREFIX=${INSTALL_HPP_DIR} -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${$(@:.configure_nodep=)_extra_flags} ..;\
 	mkdir -p ${SRC_DIR}/$(@:.configure_nodep=)/realsense2_description/${BUILD_FOLDER}; \
 	cd ${SRC_DIR}/$(@:.configure_nodep=)/realsense2_description/${BUILD_FOLDER}; \
-	cmake -DCMAKE_INSTALL_PREFIX=${DEVEL_HPP_DIR}/install -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${$(@:.configure_nodep=)_extra_flags} ..;\
+	cmake -DCMAKE_INSTALL_PREFIX=${INSTALL_HPP_DIR} -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${$(@:.configure_nodep=)_extra_flags} ..;\
 
 realsense-ros.install_nodep:realsense-ros.configure_nodep
 	cd ${SRC_DIR}/$(@:.install_nodep=)/realsense2_camera/${BUILD_FOLDER};\
@@ -885,87 +885,87 @@ realsense-ros.install:librealsense.install realsense-ros.configure
 pal_behaviour_msgs.configure_nodep:
 	mkdir -p ${SRC_DIR}/pal_msgs/$(@:.configure_nodep=)/${BUILD_FOLDER}; \
 	cd ${SRC_DIR}/pal_msgs/$(@:.configure_nodep=)/${BUILD_FOLDER}; \
-	cmake -DCMAKE_INSTALL_PREFIX=${DEVEL_HPP_DIR}/install -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${pal_msgs_extra_flags} ..
+	cmake -DCMAKE_INSTALL_PREFIX=${INSTALL_HPP_DIR} -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${pal_msgs_extra_flags} ..
 
 pal_common_msgs.configure_nodep:
 	mkdir -p ${SRC_DIR}/pal_msgs/$(@:.configure_nodep=)/${BUILD_FOLDER}; \
 	cd ${SRC_DIR}/pal_msgs/$(@:.configure_nodep=)/${BUILD_FOLDER}; \
-	cmake -DCMAKE_INSTALL_PREFIX=${DEVEL_HPP_DIR}/install -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${pal_msgs_extra_flags} ..
+	cmake -DCMAKE_INSTALL_PREFIX=${INSTALL_HPP_DIR} -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${pal_msgs_extra_flags} ..
 
 pal_control_msgs.configure_nodep:
 	mkdir -p ${SRC_DIR}/pal_msgs/$(@:.configure_nodep=)/${BUILD_FOLDER}; \
 	cd ${SRC_DIR}/pal_msgs/$(@:.configure_nodep=)/${BUILD_FOLDER}; \
-	cmake -DCMAKE_INSTALL_PREFIX=${DEVEL_HPP_DIR}/install -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${pal_msgs_extra_flags} ..
+	cmake -DCMAKE_INSTALL_PREFIX=${INSTALL_HPP_DIR} -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${pal_msgs_extra_flags} ..
 
 pal_detection_msgs.configure_nodep:
 	mkdir -p ${SRC_DIR}/pal_msgs/$(@:.configure_nodep=)/${BUILD_FOLDER}; \
 	cd ${SRC_DIR}/pal_msgs/$(@:.configure_nodep=)/${BUILD_FOLDER}; \
-	cmake -DCMAKE_INSTALL_PREFIX=${DEVEL_HPP_DIR}/install -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${pal_msgs_extra_flags} ..
+	cmake -DCMAKE_INSTALL_PREFIX=${INSTALL_HPP_DIR} -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${pal_msgs_extra_flags} ..
 
 pal_device_msgs.configure_nodep:
 	mkdir -p ${SRC_DIR}/pal_msgs/$(@:.configure_nodep=)/${BUILD_FOLDER}; \
 	cd ${SRC_DIR}/pal_msgs/$(@:.configure_nodep=)/${BUILD_FOLDER}; \
-	cmake -DCMAKE_INSTALL_PREFIX=${DEVEL_HPP_DIR}/install -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${pal_msgs_extra_flags} ..
+	cmake -DCMAKE_INSTALL_PREFIX=${INSTALL_HPP_DIR} -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${pal_msgs_extra_flags} ..
 
 pal_interaction_msgs.configure_nodep:
 	mkdir -p ${SRC_DIR}/pal_msgs/$(@:.configure_nodep=)/${BUILD_FOLDER}; \
 	cd ${SRC_DIR}/pal_msgs/$(@:.configure_nodep=)/${BUILD_FOLDER}; \
-	cmake -DCMAKE_INSTALL_PREFIX=${DEVEL_HPP_DIR}/install -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${pal_msgs_extra_flags} ..
+	cmake -DCMAKE_INSTALL_PREFIX=${INSTALL_HPP_DIR} -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${pal_msgs_extra_flags} ..
 
 pal_motion_model_msgs.configure_nodep:
 	mkdir -p ${SRC_DIR}/pal_msgs/$(@:.configure_nodep=)/${BUILD_FOLDER}; \
 	cd ${SRC_DIR}/pal_msgs/$(@:.configure_nodep=)/${BUILD_FOLDER}; \
-	cmake -DCMAKE_INSTALL_PREFIX=${DEVEL_HPP_DIR}/install -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${pal_msgs_extra_flags} ..
+	cmake -DCMAKE_INSTALL_PREFIX=${INSTALL_HPP_DIR} -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${pal_msgs_extra_flags} ..
 
 pal_multirobot_msgs.configure_nodep:
 	mkdir -p ${SRC_DIR}/pal_msgs/$(@:.configure_nodep=)/${BUILD_FOLDER}; \
 	cd ${SRC_DIR}/pal_msgs/$(@:.configure_nodep=)/${BUILD_FOLDER}; \
-	cmake -DCMAKE_INSTALL_PREFIX=${DEVEL_HPP_DIR}/install -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${pal_msgs_extra_flags} ..
+	cmake -DCMAKE_INSTALL_PREFIX=${INSTALL_HPP_DIR} -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${pal_msgs_extra_flags} ..
 
 pal_navigation_msgs.configure_nodep:
 	mkdir -p ${SRC_DIR}/pal_msgs/$(@:.configure_nodep=)/${BUILD_FOLDER}; \
 	cd ${SRC_DIR}/pal_msgs/$(@:.configure_nodep=)/${BUILD_FOLDER}; \
-	cmake -DCMAKE_INSTALL_PREFIX=${DEVEL_HPP_DIR}/install -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${pal_msgs_extra_flags} ..
+	cmake -DCMAKE_INSTALL_PREFIX=${INSTALL_HPP_DIR} -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${pal_msgs_extra_flags} ..
 
 pal_simulation_msgs.configure_nodep:
 	mkdir -p ${SRC_DIR}/pal_msgs/$(@:.configure_nodep=)/${BUILD_FOLDER}; \
 	cd ${SRC_DIR}/pal_msgs/$(@:.configure_nodep=)/${BUILD_FOLDER}; \
-	cmake -DCMAKE_INSTALL_PREFIX=${DEVEL_HPP_DIR}/install -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${pal_msgs_extra_flags} ..
+	cmake -DCMAKE_INSTALL_PREFIX=${INSTALL_HPP_DIR} -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${pal_msgs_extra_flags} ..
 
 pal_tablet_msgs.configure_nodep:
 	mkdir -p ${SRC_DIR}/pal_msgs/$(@:.configure_nodep=)/${BUILD_FOLDER}; \
 	cd ${SRC_DIR}/pal_msgs/$(@:.configure_nodep=)/${BUILD_FOLDER}; \
-	cmake -DCMAKE_INSTALL_PREFIX=${DEVEL_HPP_DIR}/install -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${pal_msgs_extra_flags} ..
+	cmake -DCMAKE_INSTALL_PREFIX=${INSTALL_HPP_DIR} -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${pal_msgs_extra_flags} ..
 
 pal_video_recording_msgs.configure_nodep:
 	mkdir -p ${SRC_DIR}/pal_msgs/$(@:.configure_nodep=)/${BUILD_FOLDER}; \
 	cd ${SRC_DIR}/pal_msgs/$(@:.configure_nodep=)/${BUILD_FOLDER}; \
-	cmake -DCMAKE_INSTALL_PREFIX=${DEVEL_HPP_DIR}/install -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${pal_msgs_extra_flags} ..
+	cmake -DCMAKE_INSTALL_PREFIX=${INSTALL_HPP_DIR} -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${pal_msgs_extra_flags} ..
 
 pal_vision_msgs.configure_nodep:
 	mkdir -p ${SRC_DIR}/pal_msgs/$(@:.configure_nodep=)/${BUILD_FOLDER}; \
 	cd ${SRC_DIR}/pal_msgs/$(@:.configure_nodep=)/${BUILD_FOLDER}; \
-	cmake -DCMAKE_INSTALL_PREFIX=${DEVEL_HPP_DIR}/install -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${pal_msgs_extra_flags} ..
+	cmake -DCMAKE_INSTALL_PREFIX=${INSTALL_HPP_DIR} -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${pal_msgs_extra_flags} ..
 
 pal_visual_localization_msgs.configure_nodep:
 	mkdir -p ${SRC_DIR}/pal_msgs/$(@:.configure_nodep=)/${BUILD_FOLDER}; \
 	cd ${SRC_DIR}/pal_msgs/$(@:.configure_nodep=)/${BUILD_FOLDER}; \
-	cmake -DCMAKE_INSTALL_PREFIX=${DEVEL_HPP_DIR}/install -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${pal_msgs_extra_flags} ..
+	cmake -DCMAKE_INSTALL_PREFIX=${INSTALL_HPP_DIR} -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${pal_msgs_extra_flags} ..
 
 pal_walking_msgs.configure_nodep:
 	mkdir -p ${SRC_DIR}/pal_msgs/$(@:.configure_nodep=)/${BUILD_FOLDER}; \
 	cd ${SRC_DIR}/pal_msgs/$(@:.configure_nodep=)/${BUILD_FOLDER}; \
-	cmake -DCMAKE_INSTALL_PREFIX=${DEVEL_HPP_DIR}/install -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${pal_msgs_extra_flags} ..
+	cmake -DCMAKE_INSTALL_PREFIX=${INSTALL_HPP_DIR} -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${pal_msgs_extra_flags} ..
 
 pal_web_msgs.configure_nodep: pal_interaction_msgs.install
 	mkdir -p ${SRC_DIR}/pal_msgs/$(@:.configure_nodep=)/${BUILD_FOLDER}; \
 	cd ${SRC_DIR}/pal_msgs/$(@:.configure_nodep=)/${BUILD_FOLDER}; \
-	cmake -DCMAKE_INSTALL_PREFIX=${DEVEL_HPP_DIR}/install -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${pal_msgs_extra_flags} ..
+	cmake -DCMAKE_INSTALL_PREFIX=${INSTALL_HPP_DIR} -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${pal_msgs_extra_flags} ..
 
 pal_wifi_localization_msgs.configure_nodep:
 	mkdir -p ${SRC_DIR}/pal_msgs/$(@:.configure_nodep=)/${BUILD_FOLDER}; \
 	cd ${SRC_DIR}/pal_msgs/$(@:.configure_nodep=)/${BUILD_FOLDER}; \
-	cmake -DCMAKE_INSTALL_PREFIX=${DEVEL_HPP_DIR}/install -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${pal_msgs_extra_flags} ..
+	cmake -DCMAKE_INSTALL_PREFIX=${INSTALL_HPP_DIR} -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${pal_msgs_extra_flags} ..
 
 pal_behaviour_msgs.install_nodep:
 	cd ${SRC_DIR}/pal_msgs/${@:.install_nodep=}/${BUILD_FOLDER}; \
@@ -1117,22 +1117,22 @@ pal_msgs.install: pal_wifi_localization_msgs.install \
 controller_stopper.configure_nodep:
 	mkdir -p ${SRC_DIR}/Universal_Robots_ROS_Driver/$(@:.configure_nodep=)/${BUILD_FOLDER}; \
 	cd ${SRC_DIR}/Universal_Robots_ROS_Driver/$(@:.configure_nodep=)/${BUILD_FOLDER}; \
-	cmake -DCMAKE_INSTALL_PREFIX=${DEVEL_HPP_DIR}/install -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${Universal_Robots_ROS_Driver_extra_flags} ..
+	cmake -DCMAKE_INSTALL_PREFIX=${INSTALL_HPP_DIR} -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${Universal_Robots_ROS_Driver_extra_flags} ..
 
 ur_calibration.configure_nodep:
 	mkdir -p ${SRC_DIR}/Universal_Robots_ROS_Driver/$(@:.configure_nodep=)/${BUILD_FOLDER}; \
 	cd ${SRC_DIR}/Universal_Robots_ROS_Driver/$(@:.configure_nodep=)/${BUILD_FOLDER}; \
-	cmake -DCMAKE_INSTALL_PREFIX=${DEVEL_HPP_DIR}/install -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${Universal_Robots_ROS_Driver_extra_flags} ..
+	cmake -DCMAKE_INSTALL_PREFIX=${INSTALL_HPP_DIR} -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${Universal_Robots_ROS_Driver_extra_flags} ..
 
 ur_dashboard_msgs.configure_nodep:
 	mkdir -p ${SRC_DIR}/Universal_Robots_ROS_Driver/$(@:.configure_nodep=)/${BUILD_FOLDER}; \
 	cd ${SRC_DIR}/Universal_Robots_ROS_Driver/$(@:.configure_nodep=)/${BUILD_FOLDER}; \
-	cmake -DCMAKE_INSTALL_PREFIX=${DEVEL_HPP_DIR}/install -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${Universal_Robots_ROS_Driver_extra_flags} ..
+	cmake -DCMAKE_INSTALL_PREFIX=${INSTALL_HPP_DIR} -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${Universal_Robots_ROS_Driver_extra_flags} ..
 
 ur_robot_driver.configure_nodep:
 	mkdir -p ${SRC_DIR}/Universal_Robots_ROS_Driver/$(@:.configure_nodep=)/${BUILD_FOLDER}; \
 	cd ${SRC_DIR}/Universal_Robots_ROS_Driver/$(@:.configure_nodep=)/${BUILD_FOLDER}; \
-	cmake -DCMAKE_INSTALL_PREFIX=${DEVEL_HPP_DIR}/install -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${Universal_Robots_ROS_Driver_extra_flags} ..
+	cmake -DCMAKE_INSTALL_PREFIX=${INSTALL_HPP_DIR} -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${Universal_Robots_ROS_Driver_extra_flags} ..
 
 controller_stopper.install_nodep:
 	cd ${SRC_DIR}/Universal_Robots_ROS_Driver/$(@:.install_nodep=)/${BUILD_FOLDER}; \
@@ -1190,25 +1190,25 @@ agimus-demos.checkout:
 ros_control.configure_nodep:
 	mkdir -p ${SRC_DIR}/$(@:.configure_nodep=)/controller_manager_msgs/${BUILD_FOLDER}; \
 	cd ${SRC_DIR}/$(@:.configure_nodep=)/controller_manager_msgs/${BUILD_FOLDER}; \
-	cmake -DCMAKE_INSTALL_PREFIX=${DEVEL_HPP_DIR}/install -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${$(@:.configure_nodep=)_extra_flags} ..;\
+	cmake -DCMAKE_INSTALL_PREFIX=${INSTALL_HPP_DIR} -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${$(@:.configure_nodep=)_extra_flags} ..;\
 	mkdir -p ${SRC_DIR}/$(@:.configure_nodep=)/hardware_interface/${BUILD_FOLDER}; \
 	cd ${SRC_DIR}/$(@:.configure_nodep=)/hardware_interface/${BUILD_FOLDER}; \
-	cmake -DCMAKE_INSTALL_PREFIX=${DEVEL_HPP_DIR}/install -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${$(@:.configure_nodep=)_extra_flags} ..;\
+	cmake -DCMAKE_INSTALL_PREFIX=${INSTALL_HPP_DIR} -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${$(@:.configure_nodep=)_extra_flags} ..;\
 	mkdir -p ${SRC_DIR}/$(@:.configure_nodep=)/combined_robot_hw/${BUILD_FOLDER}; \
 	cd ${SRC_DIR}/$(@:.configure_nodep=)/combined_robot_hw/${BUILD_FOLDER}; \
-	cmake -DCMAKE_INSTALL_PREFIX=${DEVEL_HPP_DIR}/install -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${$(@:.configure_nodep=)_extra_flags} ..;\
+	cmake -DCMAKE_INSTALL_PREFIX=${INSTALL_HPP_DIR} -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${$(@:.configure_nodep=)_extra_flags} ..;\
 	mkdir -p ${SRC_DIR}/$(@:.configure_nodep=)/controller_interface/${BUILD_FOLDER}; \
 	cd ${SRC_DIR}/$(@:.configure_nodep=)/controller_interface/${BUILD_FOLDER}; \
-	cmake -DCMAKE_INSTALL_PREFIX=${DEVEL_HPP_DIR}/install -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${$(@:.configure_nodep=)_extra_flags} ..;\
+	cmake -DCMAKE_INSTALL_PREFIX=${INSTALL_HPP_DIR} -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${$(@:.configure_nodep=)_extra_flags} ..;\
 	mkdir -p ${SRC_DIR}/$(@:.configure_nodep=)/joint_limits_interface/${BUILD_FOLDER}; \
 	cd ${SRC_DIR}/$(@:.configure_nodep=)/joint_limits_interface/${BUILD_FOLDER}; \
-	cmake -DCMAKE_INSTALL_PREFIX=${DEVEL_HPP_DIR}/install -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${$(@:.configure_nodep=)_extra_flags} ..;\
+	cmake -DCMAKE_INSTALL_PREFIX=${INSTALL_HPP_DIR} -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${$(@:.configure_nodep=)_extra_flags} ..;\
 	mkdir -p ${SRC_DIR}/$(@:.configure_nodep=)/transmission_interface/${BUILD_FOLDER}; \
 	cd ${SRC_DIR}/$(@:.configure_nodep=)/transmission_interface/${BUILD_FOLDER}; \
-	cmake -DCMAKE_INSTALL_PREFIX=${DEVEL_HPP_DIR}/install -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${$(@:.configure_nodep=)_extra_flags} ..;\
+	cmake -DCMAKE_INSTALL_PREFIX=${INSTALL_HPP_DIR} -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${$(@:.configure_nodep=)_extra_flags} ..;\
 	mkdir -p ${SRC_DIR}/$(@:.configure_nodep=)/controller_manager/${BUILD_FOLDER}; \
 	cd ${SRC_DIR}/$(@:.configure_nodep=)/controller_manager/${BUILD_FOLDER}; \
-	cmake -DCMAKE_INSTALL_PREFIX=${DEVEL_HPP_DIR}/install -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${$(@:.configure_nodep=)_extra_flags} ..;\
+	cmake -DCMAKE_INSTALL_PREFIX=${INSTALL_HPP_DIR} -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ${$(@:.configure_nodep=)_extra_flags} ..;\
 
 ros_control.install_nodep:ros_control.configure_nodep
 	cd ${SRC_DIR}/$(@:.install_nodep=)/controller_manager_msgs/${BUILD_FOLDER};\
