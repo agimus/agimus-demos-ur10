@@ -29,10 +29,3 @@ OPTION(USE_UR10_POINTING "Install files for ur10/pointing demo" OFF)
 IF(USE_UR10_POINTING)
   ADD_SUBDIRECTORY(pointing)
 ENDIF()
-
-INSTALL(FILES
-  pointing/supervisor.py
-  pointing/demo-plaque-tubes-with-table.yaml
-  pointing/demo-april-tag-plank.yaml
-  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/ur10/pointing
-  )
