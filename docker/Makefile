@@ -74,6 +74,7 @@ hpp-statistics_repository=${HPP_REPO}
 hpp-pinocchio_branch=${HPP_VERSION}
 hpp-pinocchio_repository=${HPP_REPO}
 hpp-pinocchio_extra_flags=${HPP_EXTRA_FLAGS}
+hpp-pinocchio_commit_id=a839f4e638116867cbcd1072258dd1b2d4128677
 
 hpp-constraints_branch=${HPP_VERSION}
 hpp-constraints_repository=${HPP_REPO}
@@ -147,9 +148,10 @@ Universal_Robots_Client_Library_extra_flags=
 Universal_Robots_ROS_Driver_repository=https://github.com/UniversalRobots
 Universal_Robots_ROS_Driver_branch=master
 Universal_Robots_ROS_Driver_extra_flags=
+Universal_Robots_ROS_Driver_commit_id=f56d49ce89d2180e26cfb07b384199dda1fd3912
 
 sot-universal-robot_repository=${SOT_REPO}
-sot-universal-robot_branch=master
+sot-universal-robot_branch=devel
 sot-universal-robot_extra_flags=-DPYTHON_EXECUTABLE=${PYTHON_EXECUTABLE}
 
 # }}}
@@ -264,7 +266,7 @@ agimus-vision_repository=${AGIMUS_REPO}
 
 agimus-demos_branch=devel
 agimus-demos_repository=${AGIMUS_REPO}
-agimus-demo_extraflags= -DUSE_UR10=ON -DPYTHON_EXECUTABLE=${PYTHON_EXECUTABLE}
+agimus-demos_extra_flags= -DUSE_UR10=ON -DPYTHON_EXECUTABLE=${PYTHON_EXECUTABLE}
 
 agimus-doc_branch=devel
 agimus-doc_repository=${AGIMUS_REPO}
@@ -359,7 +361,7 @@ vision_opencv_branch=noetic
 vision_opencv_extra_flags=
 
 vision_visp_repository=https://github.com/lagadic
-vision_visp_branch=master
+vision_visp_branch=noetic-devel
 vision_visp_extra_flags=
 
 image_pipeline_repository= https://github.com/ros-perception
@@ -670,6 +672,24 @@ update:
 	if [ -f .git/refs/heads/${$(@:.log=)_branch} ]; then \
 		echo -n "$(@:.log=): "; \
 		cat .git/refs/heads/${$(@:.log=)_branch}; \
+	fi
+
+hpp-pinocchio.checkout:
+	if [ -d $(@:.checkout=) ]; then \
+		echo "$(@:.checkout=) already checkout out."; \
+	else \
+		git clone ${GIT_QUIET} --recursive -b ${$(@:.checkout=)_branch} ${$(@:.checkout=)_repository}/$(@:.checkout=); \
+		cd ${SRC_DIR}/$(@:.checkout=); \
+	    git checkout ${hpp-pinocchio_commit_id}; \
+	fi
+
+Universal_Robots_ROS_Driver.checkout:
+	if [ -d $(@:.checkout=) ]; then \
+		echo "$(@:.checkout=) already checkout out."; \
+	else \
+		git clone ${GIT_QUIET} --recursive -b ${$(@:.checkout=)_branch} ${$(@:.checkout=)_repository}/$(@:.checkout=); \
+		cd ${SRC_DIR}/$(@:.checkout=); \
+	    git checkout ${Universal_Robots_ROS_Driver_commit_id}; \
 	fi
 
 OpenSceneGraph-3.4.0.checkout:
@@ -1175,7 +1195,7 @@ react_inria.checkout:
 	if [ -d react_inria ]; then \
 		echo "react_inria already checkout out."; \
 	else \
-		git clone ${GIT_QUIET} --recursive -b ${react_inria_branch} https://oauth2:glpat-LUsL1Gx9_xMFqWALBvP_@gitlab.laas.fr/rob4fam/react_inria.git; \
+		git clone ${GIT_QUIET} --recursive -b ${react_inria_branch} https://oauth2:glpat-PADEsYxyFdSejXbrRv74@gitlab.laas.fr/rob4fam/react_inria.git; \
 	fi \
 
 agimus-demos.checkout:
