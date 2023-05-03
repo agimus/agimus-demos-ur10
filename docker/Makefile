@@ -266,7 +266,7 @@ agimus-vision_repository=${AGIMUS_REPO}
 
 agimus-demos_branch=devel
 agimus-demos_repository=${AGIMUS_REPO}
-agimus-demos_extra_flags= -DUSE_UR10=ON -DPYTHON_EXECUTABLE=${PYTHON_EXECUTABLE}
+agimus-demos_extra_flags= -DUSE_UR10=ON -DUSE_UR10_POINTING=ON DPYTHON_EXECUTABLE=${PYTHON_EXECUTABLE}
 
 agimus-doc_branch=devel
 agimus-doc_repository=${AGIMUS_REPO}
