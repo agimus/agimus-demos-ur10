@@ -46,9 +46,9 @@ INSTALL_DOCUMENTATION=ON
 ##################################
 # {{{ Dependencies
 
-pinocchio_branch=v2.6.8
+pinocchio_branch=devel
 pinocchio_repository=${SOT_REPO}
-pinocchio_extra_flags= -DBUILD_PYTHON_INTERFACE=ON -DBUILD_UNIT_TESTS=OFF -DBUILD_WITH_COLLISION_SUPPORT=ON -DPYTHON_EXECUTABLE=${PYTHON_EXECUTABLE}
+pinocchio_extra_flags= -DBUILD_PYTHON_INTERFACE=ON -DBUILD_UNIT_TESTS=OFF -DBUILD_WITH_COLLISION_SUPPORT=ON -DUSE_SHARED_PTR_FROM_HPP_FCL=ON -DPYTHON_EXECUTABLE=${PYTHON_EXECUTABLE}
 
 hpp-template-corba_branch=devel
 hpp-template-corba_repository=${HPP_REPO}
@@ -64,7 +64,7 @@ HPP_EXTRA_FLAGS= -DBUILD_TESTING=${BUILD_TESTING}
 hpp-util_branch=${HPP_VERSION}
 hpp-util_repository=${HPP_REPO}
 
-hpp-fcl_branch=react
+hpp-fcl_branch=devel
 hpp-fcl_repository=${FLORENT_REPO}
 hpp-fcl_extra_flags= -DCMAKE_BUILD_TYPE=Release -DBUILD_PYTHON_INTERFACE=ON -DPYTHON_EXECUTABLE=${PYTHON_EXECUTABLE} ${HPP_EXTRA_FLAGS}
 
@@ -74,7 +74,6 @@ hpp-statistics_repository=${HPP_REPO}
 hpp-pinocchio_branch=${HPP_VERSION}
 hpp-pinocchio_repository=${HPP_REPO}
 hpp-pinocchio_extra_flags=${HPP_EXTRA_FLAGS}
-hpp-pinocchio_commit_id=a839f4e638116867cbcd1072258dd1b2d4128677
 
 hpp-constraints_branch=${HPP_VERSION}
 hpp-constraints_repository=${HPP_REPO}
@@ -146,9 +145,8 @@ Universal_Robots_Client_Library_branch=boost
 Universal_Robots_Client_Library_extra_flags=
 
 Universal_Robots_ROS_Driver_repository=https://github.com/UniversalRobots
-Universal_Robots_ROS_Driver_branch=master
+Universal_Robots_ROS_Driver_branch=v2.1.0
 Universal_Robots_ROS_Driver_extra_flags=
-Universal_Robots_ROS_Driver_commit_id=f56d49ce89d2180e26cfb07b384199dda1fd3912
 
 sot-universal-robot_repository=${SOT_REPO}
 sot-universal-robot_branch=devel
@@ -672,24 +670,6 @@ update:
 	if [ -f .git/refs/heads/${$(@:.log=)_branch} ]; then \
 		echo -n "$(@:.log=): "; \
 		cat .git/refs/heads/${$(@:.log=)_branch}; \
-	fi
-
-hpp-pinocchio.checkout:
-	if [ -d $(@:.checkout=) ]; then \
-		echo "$(@:.checkout=) already checkout out."; \
-	else \
-		git clone ${GIT_QUIET} --recursive -b ${$(@:.checkout=)_branch} ${$(@:.checkout=)_repository}/$(@:.checkout=); \
-		cd ${SRC_DIR}/$(@:.checkout=); \
-	    git checkout ${hpp-pinocchio_commit_id}; \
-	fi
-
-Universal_Robots_ROS_Driver.checkout:
-	if [ -d $(@:.checkout=) ]; then \
-		echo "$(@:.checkout=) already checkout out."; \
-	else \
-		git clone ${GIT_QUIET} --recursive -b ${$(@:.checkout=)_branch} ${$(@:.checkout=)_repository}/$(@:.checkout=); \
-		cd ${SRC_DIR}/$(@:.checkout=); \
-	    git checkout ${Universal_Robots_ROS_Driver_commit_id}; \
 	fi
 
 OpenSceneGraph-3.4.0.checkout:
